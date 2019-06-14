@@ -17,13 +17,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/blog",
+            "outputPath": "dist/browser",
             "index": "apps/blog/src/index.html",
             "main": "apps/blog/src/main.ts",
             "polyfills": "apps/blog/src/polyfills.ts",
             "tsConfig": "apps/blog/tsconfig.app.json",
-            "assets": ["apps/blog/src/favicon.ico", "apps/blog/src/assets"],
-            "styles": ["apps/blog/src/styles.scss"],
+            "assets": [
+              "apps/blog/src/favicon.ico",
+              "apps/blog/src/assets"
+            ],
+            "styles": [
+              "apps/blog/src/styles.scss"
+            ],
             "scripts": [],
             "es5BrowserSupport": true
           },
@@ -78,7 +83,9 @@
               "apps/blog/tsconfig.app.json",
               "apps/blog/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -87,6 +94,24 @@
             "jestConfig": "apps/blog/jest.config.js",
             "tsConfig": "apps/blog/tsconfig.spec.json",
             "setupFile": "apps/blog/src/test-setup.ts"
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "apps/blog/src/main.server.ts",
+            "tsConfig": "apps/blog/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            }
           }
         }
       }
@@ -113,7 +138,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/blog-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
