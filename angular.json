@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/browser",
+            "outputPath": "dist/apps/blog/browser",
             "index": "apps/blog/src/index.html",
             "main": "apps/blog/src/main.ts",
             "polyfills": "apps/blog/src/polyfills.ts",
@@ -99,7 +99,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/server",
+            "outputPath": "dist/apps/blog/server",
             "main": "apps/blog/src/main.server.ts",
             "tsConfig": "apps/blog/tsconfig.server.json"
           },
@@ -110,7 +110,9 @@
                   "replace": "apps/blog/src/environments/environment.ts",
                   "with": "apps/blog/src/environments/environment.prod.ts"
                 }
-              ]
+              ],
+              "sourceMap": false,
+              "optimization": true
             }
           }
         }
